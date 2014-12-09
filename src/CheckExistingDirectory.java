@@ -14,7 +14,10 @@ public class CheckExistingDirectory {
                 StandardCopyOption.REPLACE_EXISTING,
                 StandardCopyOption.COPY_ATTRIBUTES
         };
-        if (!Files.exists(endPath)){
+        if (!Files.exists(basePath)){
+            System.out.println("Reports Install is not present! Ending Process");
+            return;
+        } else if (!Files.exists(endPath)){
             System.out.println("Directory Doesn't Exist");
             System.out.println("Creating Directory");
             Files.createDirectories(endPath);
