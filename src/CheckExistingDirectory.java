@@ -3,12 +3,12 @@
  */
 
 import java.io.IOException;
-import java.nio.file.*;
+        import java.nio.file.*;
 
 public class CheckExistingDirectory {
 
-    public static void main(String[] args)throws IOException{
-        Path basePath = Paths.get("E:\\Testing\\DemoHub\\FieldDesgner_4.16");
+    public static void main(String[] args) throws Exception {
+        Path basePath = Paths.get("E:\\Testing\\DemoHub\\FieldDesigner_4.16");
         Path endPath = Paths.get("E:\\Testing\\DemoHub\\Test1");
         boolean copyFrom = true;
         CopyOption[] options = new CopyOption[]{
@@ -25,7 +25,13 @@ public class CheckExistingDirectory {
             Files.createDirectories(endPath);
         }
 
-        
+        FolderPicker ChoosePath = new FolderPicker();
+        try {
+            ChoosePath.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Files.copy(basePath,endPath, options);
     }
 }
