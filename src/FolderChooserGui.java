@@ -40,7 +40,7 @@ public class FolderChooserGui {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(BorderLayout.EAST, panelA);
-        //frame.getContentPane().add(BorderLayout.WEST, panelB);
+        frame.getContentPane().add(BorderLayout.WEST, panelB);
         frame.setSize(400, 200);
         frame.setVisible(true);
 
