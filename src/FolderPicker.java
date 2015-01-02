@@ -12,30 +12,29 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-
 import java.io.File;
 
-public class FolderPicker  {
-    String selectedPath;
-    Window primaryStage = null;
 
+public class FolderPicker extends Application {
+    String selectedPath;
     @Override
-    public void start() throws Exception {
+    public void start(final Stage primaryStage) throws Exception {
         final Label labelSelectedDirectory = new Label();
+
         Button openDirectoryButton = new Button("Open Directory Chooser");
         Button cancelButton = new Button("Cancel");
         openDirectoryButton.setOnAction(new EventHandler<ActionEvent>() {
+
             @Override
-            public void handle(ActionEvent actionEvent) {
+            public void handle(ActionEvent event) {
                 DirectoryChooser directoryChooser = new DirectoryChooser();
                 File selectedDirectory = directoryChooser.showDialog(primaryStage);
                 if (selectedDirectory == null) {
                     labelSelectedDirectory.setText("No Directory Selected");
                 } else {
                     labelSelectedDirectory.setText(selectedDirectory.getAbsolutePath());
+                    String selectedPath = selectedDirectory.getAbsolutePath();
                 }
-                String selectedPath = selectedDirectory.getAbsolutePath();
             }
         });
 
@@ -53,7 +52,7 @@ public class FolderPicker  {
         root.getChildren().add(vBox);
         ;
 
-        Scene scene = new Scene(root, 200 ,200);
+        Scene scene = new Scene(root, 150 ,150);
 
         primaryStage.setTitle("New Reports Installer");
         primaryStage.setScene(scene);
@@ -61,8 +60,10 @@ public class FolderPicker  {
 
     }
 
-    /*public static void main(String[] args) {
+
+
+    public static void main(String[] args) {
         launch(args);
 
-    }*/
+    }
 }
