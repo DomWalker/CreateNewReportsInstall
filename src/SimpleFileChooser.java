@@ -70,7 +70,7 @@ public class SimpleFileChooser extends JFrame {
                             chooser.getSelectedFile().getName():"nothing"));
                 }
                 else {
-                    statusbar.setText("You canceled.");
+                    statusbar.setText("You  canceled.");
                 }
             }
         });
