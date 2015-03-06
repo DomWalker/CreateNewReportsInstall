@@ -14,6 +14,7 @@ public class FolderChooserGui {
     JButton createNewDirectoryButton = new JButton("Create New Directory");
     JButton copyTestInstallationButton = new JButton("Copy Test Installation");
     JButton button3 = new JButton("Test Button 3");
+    JFileChooser fc = new JFileChooser();
     Font font1 = new Font(Font.MONOSPACED, Font.BOLD, 12);
 
 
@@ -49,7 +50,11 @@ public class FolderChooserGui {
         public void actionPerformed(ActionEvent event){
             createNewDirectoryButton.setText("Been Clicked 1");
         }
+
+
     }
+
+
     class copyDirectoryListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
             copyTestInstallationButton.setText("Been Clicked 2");
